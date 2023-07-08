@@ -30,13 +30,13 @@ function App() {
           <div className="timer">30</div>
         </div>
         <div className="bottom">
-          <Trivia/>
+          <Trivia/> 
         </div>
       </div>
       <div className="pyramid">
         <ul className="moneyList">
           {moneyPyramid.map((m) => (
-            <li className={questionNumber === m.id ? "moneyListItem active" : "moneyListItem"}>
+            <li className={questionNumber === m.id ? "moneyListItem" : "moneyListItem"}>
               <span className="moneyListItemNumber">{m.id}</span>
               <span className="moneyListItemAmount">{m.amount}</span>
             </li>
