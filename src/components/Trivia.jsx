@@ -14,7 +14,7 @@ export default function Trivia({
     setSelectedAnswer(a);
     setClassName("answer active")
     setTimeOut(() => {
-
+      setClassName(a.correct ? "answer correct" : "answer wrong")
     }, 3000)
   };
 
