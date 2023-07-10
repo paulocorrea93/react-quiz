@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 
-const Trivia = (data, steTimeOut, questionNumber, setQuestionNumber) => {
+export default function Trivia({ data, questionNumber, setQuestionNumber, setTimeOut }) {
+  
   const [question, setQuestion] = useState(null);
 
   useEffect(() => {
@@ -9,15 +10,12 @@ const Trivia = (data, steTimeOut, questionNumber, setQuestionNumber) => {
 
   return (
     <div className="trivia">
-      <div className="question">what's the best youtube channel</div>
+      <div className="question">{question?.question}</div>
       <div className="answers">
-        <div className="answer">Lama Dev</div>
-        <div className="answer">Lama Dev</div>
-        <div className="answer">Lama Dev</div>
-        <div className="answer">Lama Dev</div>
+        {question?.answers.map((a) => (
+          <div className="answer">{a.text}</div>
+        ))}
       </div>
     </div>
   );
-};
-
-export default Trivia;
+}

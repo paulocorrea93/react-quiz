@@ -3,7 +3,7 @@ import "./app.css";
 import Trivia from "./components/Trivia";
 
 function App() {
-  const [questionNumber, setQuestionNumber] = useState(5);
+  const [questionNumber, setQuestionNumber] = useState(1);
   const [timeOut, setTimeOut] = useState(false);
 
   const data = [
@@ -102,9 +102,9 @@ function App() {
         <div className="bottom">
           <Trivia
             data={data}
-            setTimeOut={setTimeOut}
             questionNumber={questionNumber}
             setQuestionNumber={setQuestionNumber}
+            setTimeOut={setTimeOut}
           />
         </div>
       </div>
