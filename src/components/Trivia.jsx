@@ -13,6 +13,9 @@ export default function Trivia({
   const handleClick = (a) => {
     setSelectedAnswer(a);
     setClassName("answer active")
+    setTimeOut(() => {
+
+    }, 3000)
   };
 
   useEffect(() => {
