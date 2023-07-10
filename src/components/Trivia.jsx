@@ -4,7 +4,7 @@ export default function Trivia({
   data,
   questionNumber,
   setQuestionNumber,
-  setTimeOut,
+  setStop,
 }) {
   const [question, setQuestion] = useState(null);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
@@ -13,7 +13,7 @@ export default function Trivia({
   const handleClick = (a) => {
     setSelectedAnswer(a);
     setClassName("answer active")
-    setTimeOut(() => {
+    setStop(() => {
       setClassName(a.correct ? "answer correct" : "answer wrong")
     }, 3000)
   };

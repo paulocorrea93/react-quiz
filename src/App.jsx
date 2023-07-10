@@ -4,7 +4,7 @@ import Trivia from "./components/Trivia";
 
 function App() {
   const [questionNumber, setQuestionNumber] = useState(1);
-  const [timeOut, setTimeOut] = useState(false);
+  const [stop, setStop] = useState(false);
 
   const data = [
     {
@@ -104,7 +104,7 @@ function App() {
             data={data}
             questionNumber={questionNumber}
             setQuestionNumber={setQuestionNumber}
-            setTimeOut={setTimeOut}
+            setStop={setStop}
           />
         </div>
       </div>
