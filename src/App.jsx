@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import "./app.css";
 import Trivia from "./components/Trivia";
 
@@ -76,27 +76,32 @@ function App() {
     },
   ];
 
-  const moneyPyramid = [
-    { id: 1, amount: "R$100" },
-    { id: 2, amount: "R$200" },
-    { id: 3, amount: "R$300" },
-    { id: 4, amount: "R$500" },
-    { id: 5, amount: "R$1000" },
-    { id: 6, amount: "R$2000" },
-    { id: 7, amount: "R$4000" },
-    { id: 8, amount: "R$8000" },
-    { id: 9, amount: "R$16000" },
-    { id: 10, amount: "R$32000" },
-    { id: 11, amount: "R$64000" },
-    { id: 12, amount: "R$125000" },
-    { id: 13, amount: "R$250000" },
-    { id: 14, amount: "R$500000" },
-    { id: 15, amount: "R$1000000" },
-  ].reverse();
+  const moneyPyramid = useMemo(
+    () =>
+      [
+        { id: 1, amount: "R$100" },
+        { id: 2, amount: "R$200" },
+        { id: 3, amount: "R$300" },
+        { id: 4, amount: "R$500" },
+        { id: 5, amount: "R$1000" },
+        { id: 6, amount: "R$2000" },
+        { id: 7, amount: "R$4000" },
+        { id: 8, amount: "R$8000" },
+        { id: 9, amount: "R$16000" },
+        { id: 10, amount: "R$32000" },
+        { id: 11, amount: "R$64000" },
+        { id: 12, amount: "R$125000" },
+        { id: 13, amount: "R$250000" },
+        { id: 14, amount: "R$500000" },
+        { id: 15, amount: "R$1000000" },
+      ].reverse(),
+    []
+  );
 
   useEffect(() => {
-    questionNumber > 1 && setEarned(moneyPyramid.find((m) => m.id === questionNumber - 1).amount)
-  }, [moneyPyramid, questionNumber])
+    questionNumber > 1 &&
+      setEarned(moneyPyramid.find((m) => m.id === questionNumber - 1).amount);
+  }, [moneyPyramid, questionNumber]);
 
   return (
     <div className="app">
