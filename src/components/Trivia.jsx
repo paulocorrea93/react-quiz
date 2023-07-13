@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from "react";
 import useSound from "use-sound";
+import play from "../assets/play.mp3";
+import correct from "../assets/correct.mp3";
+import wrong from "../assets/wrong.mp3";
+import wait from "../assets/wait.mp3";
 
 export default function Trivia({
   data,
@@ -10,6 +14,10 @@ export default function Trivia({
   const [question, setQuestion] = useState(null);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [className, setClassName] = useState("answer");
+
+  const [letsPlay] = useSound(play);
+  const [correctAnswer] = useSound(correct);
+  const [wrongAnswer] = useSound(wrong);
 
   const delay = (duration, callback) => {
     setTimeout(() => {
