@@ -19,6 +19,10 @@ export default function Trivia({
   const [correctAnswer] = useSound(correct);
   const [wrongAnswer] = useSound(wrong);
 
+  useEffect(() => {
+    letsPlay();
+  }, [letsPlay]);
+
   const delay = (duration, callback) => {
     setTimeout(() => {
       callback();
@@ -31,12 +35,18 @@ export default function Trivia({
     delay(3000, () => {
       setClassName(a.correct ? "answer correct" : "answer wrong");
     });
-    delay(6000, () => {
+    delay(5000, () => {
       if (a.correct) {
-        setQuestionNumber((prev) => prev + 1);
-        setSelectedAnswer(null);
+        correctAnswer();
+        delay(1000, () => {
+          setQuestionNumber((prev) => prev + 1);
+          setSelectedAnswer(null);
+        });
       } else {
-        setStop(true);
+        wrongAnswer()
+        delay(1000, () => {
+          setStop(true);
+        });
       }
     });
   };
